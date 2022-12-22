@@ -1,0 +1,20 @@
+footer {
+    @extend %grid-center;
+    padding: 1em;
+    background-color: #353535;
+
+
+    & h3,
+    a {
+        font-family: 'Shrikhand', cursive;
+        color: white;
+        text-decoration: none;
+    }
+
+    & p,
+    span {
+        color: white;
+        text-decoration: none;
+        font-family: roboto;
+    }
+}

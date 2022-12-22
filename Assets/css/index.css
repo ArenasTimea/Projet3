@@ -1,0 +1,188 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+footer, main .restaurants, main .fonctionnement, main .story, main .localisation, header {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+h2 {
+  font-family: roboto;
+}
+
+header {
+  padding: 1em;
+}
+header h1 {
+  font-family: "Shrikhand", cursive;
+}
+
+/* Début Main */
+main {
+  font-family: "Roboto", sans-serif;
+}
+main .localisation {
+  padding: 1em;
+  background: #eaeaea;
+  background: linear-gradient(180deg, rgba(173, 173, 173, 0.35) 0%, rgba(234, 234, 234, 0.75) 15%, rgb(234, 234, 234) 100%);
+}
+main .localisation h2 i {
+  padding: 0 0.5em 0 0;
+}
+main .story {
+  padding: 1em;
+  background: #f6f6f6;
+  text-align: center;
+}
+main .story h2,
+main .story p {
+  padding: 1em;
+}
+main .fonctionnement {
+  padding: 3em 1em;
+}
+main .fonctionnement h2 {
+  justify-self: start;
+}
+main .fonctionnement ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  margin: 1em 1em 0;
+  counter-reset: MyCounter;
+  grid-column: 1/4;
+  grid-row: 2/auto;
+  grid-column: 1/4;
+  justify-self: normal;
+}
+@media screen and (max-width: 980px) {
+  main .fonctionnement ol {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+main .fonctionnement ol li p {
+  display: inline-block;
+  position: relative;
+  left: -0.7em;
+}
+main .fonctionnement ol li p i {
+  padding: 0 1em 0 0;
+}
+main .fonctionnement ol li::before {
+  counter-increment: MyCounter;
+  content: counter(MyCounter);
+  position: relative;
+  left: -1.9em;
+  padding: 0.3em 0.6em;
+  border-radius: 70%;
+  background-color: rgb(147, 86, 220);
+  color: rgb(255, 255, 255);
+}
+main .fonctionnement ol li:hover {
+  background-color: #f2eafb;
+}
+main .fonctionnement ol li:hover i {
+  color: rgb(147, 86, 220);
+}
+main .restaurants {
+  background: #eaeaea;
+}
+main .restaurants h2 {
+  justify-self: start;
+  padding: 20px;
+}
+main .restaurants ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 70%;
+  gap: 20px;
+}
+main .restaurants ul li {
+  width: 450px;
+  border-radius: 16px;
+  background-color: white;
+}
+main .restaurants ul li a {
+  text-decoration: none;
+}
+main .restaurants ul li .nouveau {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+main .restaurants ul li img {
+  height: 200px;
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  object-fit: cover;
+}
+main .restaurants ul li .informations {
+  display: flex;
+}
+main .restaurants ul li .informations span {
+  padding-left: 250px;
+}
+main .restaurants ul li h3 {
+  margin-left: 10px;
+  color: black;
+}
+main .restaurants ul li p {
+  margin-left: 10px;
+  color: black;
+}
+main .restaurants ul li span i {
+  margin-top: 45px;
+  margin-left: -28px;
+  font-size: 24px;
+}
+main .restaurants ul li span .fa-solid {
+  background-image: linear-gradient #9356dc, #ff79da;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+}
+main .restaurants ul li span:hover .fa-solid {
+  opacity: 1;
+}
+
+footer {
+  padding: 1em;
+  background-color: #353535;
+}
+footer h3,
+footer a {
+  font-family: "Shrikhand", cursive;
+  color: white;
+  text-decoration: none;
+}
+footer p,
+footer span {
+  color: white;
+  text-decoration: none;
+  font-family: roboto;
+}
+
+.btn {
+  padding: 1em 1.5em;
+  color: rgb(255, 255, 255);
+  transition: 250ms;
+}
+.btn--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 200%);
+}
+.btn--radius {
+  border-radius: 2em;
+}
+.btn:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+.items {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+  padding: 0%;
+}
