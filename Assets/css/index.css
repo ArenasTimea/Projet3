@@ -1,25 +1,29 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
-footer, main .restaurants, main .fonctionnement, main .story, main .localisation, header {
+main .restaurant-menu, main .restaurants, main .fonctionnement, main .story, main .localisation, header {
   display: grid;
   align-items: center;
   justify-items: center;
 }
 
-h2 {
-  font-family: roboto;
-}
-
-header {
-  padding: 1em;
-}
 header h1 {
   font-family: "Shrikhand", cursive;
+}
+
+.fa-arrow-left {
+  position: absolute;
+  left: 2rem;
+  height: 2rem;
+  width: -8rem;
+  top: 4%;
+  font-size: 24px;
+  color: #000;
 }
 
 /* Début Main */
 main {
   font-family: "Roboto", sans-serif;
+  background: #eaeaea;
 }
 main .localisation {
   padding: 1em;
@@ -41,9 +45,6 @@ main .story p {
 main .fonctionnement {
   padding: 3em 1em;
 }
-main .fonctionnement h2 {
-  justify-self: start;
-}
 main .fonctionnement ol {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -54,6 +55,7 @@ main .fonctionnement ol {
   grid-row: 2/auto;
   grid-column: 1/4;
   justify-self: normal;
+  padding: 0;
 }
 @media screen and (max-width: 980px) {
   main .fonctionnement ol {
@@ -75,101 +77,261 @@ main .fonctionnement ol li::before {
   left: -1.9em;
   padding: 0.3em 0.6em;
   border-radius: 70%;
-  background-color: rgb(147, 86, 220);
+  background-color: #9356dc;
   color: rgb(255, 255, 255);
 }
 main .fonctionnement ol li:hover {
   background-color: #f2eafb;
 }
 main .fonctionnement ol li:hover i {
-  color: rgb(147, 86, 220);
+  color: #9356dc;
 }
 main .restaurants {
+  grid-template-columns: repeat(1, 1fr);
   background: #eaeaea;
+  padding: 3em 1em;
 }
 main .restaurants h2 {
   justify-self: start;
-  padding: 20px;
 }
 main .restaurants ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 70%;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 2em;
+  justify-self: normal;
+  margin: 1em 0;
+  padding: 0;
+}
+@media screen and (min-width: 980px) {
+  main .restaurants ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1240px) {
+  main .restaurants ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 main .restaurants ul li {
-  width: 450px;
-  border-radius: 16px;
-  background-color: white;
+  display: inline-block;
+  width: 100%;
 }
 main .restaurants ul li a {
-  text-decoration: none;
+  display: block;
+  position: relative;
+  padding: 0 0 0.7rem 0;
+  color: rgb(0, 0, 0);
+  border-radius: 1.5em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
-main .restaurants ul li .nouveau {
+main .restaurants ul li a .nouveau {
   position: absolute;
-  top: 5%;
-  right: 5%;
+  right: 1em;
+  top: 1em;
+  padding: 0.4em 0.6em;
+  color: rgb(0, 135, 102);
+  background: rgb(153, 226, 208);
+  border-radius: 0.2em;
 }
-main .restaurants ul li img {
-  height: 200px;
+main .restaurants ul li a img {
+  padding: 0 0 0.5rem 0;
+  height: 12.5em;
   width: 100%;
-  border-radius: 16px 16px 0 0;
+  border-radius: 1.5em 1.5em 0 0;
   object-fit: cover;
 }
-main .restaurants ul li .informations {
+main .restaurants ul li a h3,
+main .restaurants ul li a p {
+  padding: 0 1rem 0.5rem;
+  margin: 0;
+}
+main .restaurants ul li a .BoxCoeur {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 1.5rem;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+main .restaurant-menu {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  background: #f6f6f6;
+}
+main .restaurant-menu__image {
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+  margin: 0 0 -5em 0;
+}
+main .restaurant-menu__carte {
+  padding: 2em 1em 0;
+  background: #f6f6f6;
+  border-radius: 3em 3em 0 0;
+  width: 90%;
+}
+main .restaurant-menu__carte h2 {
+  justify-self: start;
+  margin: 0 0 1em;
+  font-family: "Shrikhand", cursive;
+  font-size: 2em;
   display: flex;
+  justify-content: space-between;
 }
-main .restaurants ul li .informations span {
-  padding-left: 250px;
+main .restaurant-menu__carte h2 span {
+  margin: 0 1em 0 2rem;
+  font-size: 1em;
+  position: relative;
 }
-main .restaurants ul li h3 {
-  margin-left: 10px;
-  color: black;
+main .restaurant-menu__carte h3 {
+  text-transform: uppercase;
+  font-weight: normal;
 }
-main .restaurants ul li p {
-  margin-left: 10px;
-  color: black;
+main .restaurant-menu__carte h3::after {
+  border-bottom: 3px #99E2D0 solid;
+  content: "";
+  display: block;
+  width: 3rem;
 }
-main .restaurants ul li span i {
-  margin-top: 45px;
-  margin-left: -28px;
-  font-size: 24px;
+main .restaurant-menu__carte ul {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1.5em;
+  margin: 1em 0 2.5em;
 }
-main .restaurants ul li span .fa-solid {
-  background-image: linear-gradient #9356dc, #ff79da;
-  background-clip: text;
-  -webkit-background-clip: text;
+@media screen and (min-width: 980px) {
+  main .restaurant-menu__carte ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1240px) {
+  main .restaurant-menu__carte ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+main .restaurant-menu__carte ul .items {
+  position: relative;
+  padding: 1em;
+  font-size: 1em;
+  overflow: hidden;
+  cursor: pointer;
+}
+main .restaurant-menu__carte ul .items h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1em;
+}
+main .restaurant-menu__carte ul .items p {
+  font-size: 1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.5s;
+  width: 80%;
+}
+main .restaurant-menu__carte ul .items strong {
+  position: absolute;
+  right: 2em;
+  bottom: 1em;
+  transition: all 0.5s;
+}
+main .restaurant-menu__carte ul .items span {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  background: rgb(153, 226, 208);
+  transition: all 0.5s;
+  font-size: 1.5em;
+}
+main .restaurant-menu__carte ul .items span .fa-check-circle {
+  transform: rotate(-240deg);
+  transition: all 0.5s;
+}
+main .restaurant-menu__carte ul .items:hover p {
+  width: 65%;
+}
+main .restaurant-menu__carte ul .items:hover strong {
+  right: 6rem;
+}
+main .restaurant-menu__carte ul .items:hover span {
+  right: 0;
+}
+main .restaurant-menu__carte ul .items:hover span i {
+  transform: rotate(0deg);
+}
+main .restaurant-menu__carte ul .items {
   opacity: 0;
+  animation: Ahahahah 1000ms forwards;
 }
-main .restaurants ul li span:hover .fa-solid {
-  opacity: 1;
+main .restaurant-menu__carte ul .items--1 {
+  animation-delay: 300ms;
+}
+main .restaurant-menu__carte ul .items--2 {
+  animation-delay: 600ms;
+}
+main .restaurant-menu__carte ul .items--3 {
+  animation-delay: 900ms;
+}
+main .restaurant-menu__carte ul .items--4 {
+  animation-delay: 1200ms;
+}
+main .restaurant-menu__carte ul .items--5 {
+  animation-delay: 1500ms;
+}
+main .restaurant-menu__carte ul .items--6 {
+  animation-delay: 1800ms;
+}
+main .restaurant-menu__carte ul .items--7 {
+  animation-delay: 2100ms;
+}
+main .restaurant-menu__carte ul .items--8 {
+  animation-delay: 2400ms;
+}
+main .restaurant-menu__carte ul .items--9 {
+  animation-delay: 2700ms;
+}
+@keyframes Ahahahah {
+  0% {
+    transform: translateY(2em);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 footer {
-  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat 1, 1fr;
+  padding: 2em 2em;
   background-color: #353535;
 }
-footer h3,
-footer a {
+footer h3 a {
   font-family: "Shrikhand", cursive;
   color: white;
   text-decoration: none;
 }
 footer p,
-footer span {
+footer a {
   color: white;
   text-decoration: none;
   font-family: roboto;
+  display: flex;
+  gap: 20px;
 }
 
 .btn {
   padding: 1em 1.5em;
   color: rgb(255, 255, 255);
   transition: 250ms;
+  text-decoration: none;
 }
 .btn--gradient {
-  background-image: radial-gradient(100% 50% at 20% 10%, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 200%);
+  background-image: radial-gradient(100% 50% at 20% 10%, #ff79da 0%, #9356dc 200%);
 }
 .btn--radius {
   border-radius: 2em;
@@ -184,5 +346,136 @@ footer span {
   text-align: left;
   border-radius: 1em;
   box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
-  padding: 0%;
+  background-color: white;
+}
+
+.BoxCoeur .heart-away {
+  display: block;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.BoxCoeur .heart-hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: all 0.5s;
+  background-color: black;
+  background-image: linear-gradient(0deg, #ff79da, #9356dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.BoxCoeur:hover .heart-away {
+  opacity: 0;
+  transform: scale(0);
+}
+.BoxCoeur:hover .heart-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cs-loader {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: 1s fadeOut 5500ms ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.cs-loader-inner {
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  width: calc(100% - 200px);
+  color: rgb(158, 6, 6);
+  padding: 0 100px;
+  text-align: center;
+}
+
+.cs-loader-inner label {
+  font-size: 20px;
+  opacity: 0;
+  display: inline-block;
+}
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  33% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+}
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-300px);
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(300px);
+  }
+}
+.cs-loader-inner label:nth-child(6) {
+  -webkit-animation: lol 3s infinite ease-in-out;
+  animation: lol 3s infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(5) {
+  -webkit-animation: lol 3s 100ms infinite ease-in-out;
+  animation: lol 3s 100ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(4) {
+  -webkit-animation: lol 3s 200ms infinite ease-in-out;
+  animation: lol 3s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(3) {
+  -webkit-animation: lol 3s 300ms infinite ease-in-out;
+  animation: lol 3s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(2) {
+  -webkit-animation: lol 3s 400ms infinite ease-in-out;
+  animation: lol 3s 400ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(1) {
+  -webkit-animation: lol 3s 500ms infinite ease-in-out;
+  animation: lol 3s 500ms infinite ease-in-out;
 }

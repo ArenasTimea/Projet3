@@ -1,8 +1,18 @@
 header {
     @extend %grid-center;
-    padding: 1em;
 
     & h1 {
         font-family: 'Shrikhand', cursive;
     }
+
+}
+
+.fa-arrow-left {
+    position: absolute;
+    left: 2rem;
+    height: 2rem;
+    width: -8rem;
+    top: 4%;
+    font-size: 24px;
+    color: #000;
 }

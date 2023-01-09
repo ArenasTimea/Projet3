@@ -3,6 +3,7 @@
     padding: 1em 1.5em;
     color: $txt-fond-sombre;
     transition: 250ms;
+    text-decoration: none;
 
     &--gradient {
         background-image: radial-gradient(100% 50% at 20% 10%,
@@ -18,4 +19,5 @@
         opacity: 0.8;
         box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
     }
+
 }

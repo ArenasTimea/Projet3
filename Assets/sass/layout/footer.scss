@@ -1,20 +1,22 @@
 footer {
-    @extend %grid-center;
-    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat (1, 1fr);
+    padding: 2em 2em;
     background-color: #353535;
 
 
-    & h3,
-    a {
+    & h3 a {
         font-family: 'Shrikhand', cursive;
         color: white;
         text-decoration: none;
     }
 
     & p,
-    span {
+    a {
         color: white;
         text-decoration: none;
         font-family: roboto;
+        display: flex;
+        gap: 20px;
     }
 }
