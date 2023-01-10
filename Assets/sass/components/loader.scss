@@ -10,23 +10,12 @@
     animation: 1s fadeOut 5500ms ease forwards;
 }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
 .cs-loader-inner {
     transform: translateY(-50%);
     top: 50%;
     position: absolute;
     width: calc(100% - 200px);
-    color: rgb(158, 6, 6);
+    color: #9356dc;
     padding: 0 100px;
     text-align: center;
 }
@@ -37,49 +26,6 @@
     display: inline-block;
 }
 
-@keyframes lol {
-    0% {
-        opacity: 0;
-        transform: translateX(-300px);
-    }
-
-    33% {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-
-    66% {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(300px);
-    }
-}
-
-@-webkit-keyframes lol {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-300px);
-    }
-
-    33% {
-        opacity: 1;
-        -webkit-transform: translateX(0px);
-    }
-
-    66% {
-        opacity: 1;
-        -webkit-transform: translateX(0px);
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translateX(300px);
-    }
-}
 
 .cs-loader-inner label:nth-child(6) {
     -webkit-animation: lol 3s infinite ease-in-out;
