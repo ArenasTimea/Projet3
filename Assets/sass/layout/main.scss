@@ -184,7 +184,7 @@ main {
 
             & h2 {
                 justify-self: start;
-                margin: 0 0 1em;
+                margin: 0 0 1em 1em;
                 font-family: 'Shrikhand', cursive;
                 font-size: 2em;
                 display: flex;
@@ -201,6 +201,7 @@ main {
             & h3 {
                 text-transform: uppercase;
                 font-weight: normal;
+                margin-left: 2em;
             }
 
             & h3::after {
@@ -273,10 +274,6 @@ main {
                             transition: all 0.5s;
                         }
                     }
-
-
-
-
                 }
 
                 & .items:hover {
