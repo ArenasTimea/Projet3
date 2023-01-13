@@ -243,6 +243,7 @@ main .restaurant-menu__carte ul {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1.5em;
   margin: 1em 0 2.5em;
+  padding: 0;
 }
 @media screen and (min-width: 980px) {
   main .restaurant-menu__carte ul {
@@ -264,6 +265,11 @@ main .restaurant-menu__carte ul .items {
 main .restaurant-menu__carte ul .items h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.5s;
+  width: 85%;
 }
 main .restaurant-menu__carte ul .items p {
   font-size: 1em;
@@ -271,7 +277,7 @@ main .restaurant-menu__carte ul .items p {
   text-overflow: ellipsis;
   overflow: hidden;
   transition: all 0.5s;
-  width: 80%;
+  width: 75%;
 }
 main .restaurant-menu__carte ul .items strong {
   position: absolute;
@@ -296,6 +302,9 @@ main .restaurant-menu__carte ul .items span {
 main .restaurant-menu__carte ul .items span .fa-check-circle {
   transform: rotate(-240deg);
   transition: all 0.5s;
+}
+main .restaurant-menu__carte ul .items:hover h4 {
+  width: 70%;
 }
 main .restaurant-menu__carte ul .items:hover p {
   width: 65%;
