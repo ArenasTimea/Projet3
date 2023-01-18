@@ -73,7 +73,7 @@ main {
                 left: -1.9em;
                 padding: 0.3em 0.6em;
                 border-radius: 70%;
-                background-color: $violet-primaire;
+                background-color: white;
                 color: $txt-fond-sombre;
             }
 
@@ -306,7 +306,7 @@ main {
 
                 & .items {
                     opacity: 0;
-                    animation: Ahahahah 1000ms forwards;
+                    animation: itemmove 1000ms forwards;
 
                     @for $i from 1 to 10 {
                         &--#{$i} {
@@ -314,7 +314,7 @@ main {
                         }
                     }
 
-                    @keyframes Ahahahah {
+                    @keyframes itemove {
                         0% {
                             transform: translateY(2em);
                         }
