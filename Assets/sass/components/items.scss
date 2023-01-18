@@ -5,3 +5,15 @@
     box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
     background-color: white;
 }
+
+.items-violet {
+    padding: 1.5em 1em;
+    text-align: left;
+    border-radius: 1em;
+    box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+    background-color: lighten($violet-primaire, 35%);
+
+    & i {
+        color: $violet-primaire;
+    }
+}

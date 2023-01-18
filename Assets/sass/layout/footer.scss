@@ -5,10 +5,9 @@ footer {
     background-color: #353535;
 
 
-    & h3 a {
+    & h3 {
         font-family: 'Shrikhand', cursive;
-        color: white;
-        text-decoration: none;
+
     }
 
     & p,
@@ -18,5 +17,9 @@ footer {
         font-family: roboto;
         display: flex;
         gap: 20px;
+    }
+
+    & i {
+        width: 14px;
     }
 }
