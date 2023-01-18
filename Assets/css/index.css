@@ -92,7 +92,8 @@ main .fonctionnement {
 }
 main .fonctionnement ol {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  /** 3 carte sur une colonne en version phone**/
   grid-gap: 2em;
   margin: 1em 1em 0;
   counter-reset: MyCounter;
@@ -102,9 +103,10 @@ main .fonctionnement ol {
   justify-self: normal;
   padding: 0;
 }
-@media screen and (max-width: 980px) {
+@media screen and (min-width: 980px) {
   main .fonctionnement ol {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    /** 1 carte par colonne en version tablette et plus**/
   }
 }
 main .fonctionnement ol li p {
@@ -125,10 +127,10 @@ main .fonctionnement ol li::before {
   background-color: #9356dc;
   color: rgb(255, 255, 255);
 }
-main .fonctionnement ol li:hover {
+main .fonctionnement ol li .items {
   background-color: #f2eafb;
 }
-main .fonctionnement ol li:hover i {
+main .fonctionnement ol li .items i {
   color: #9356dc;
 }
 main .restaurants {
@@ -278,6 +280,18 @@ main .restaurant-menu__carte ul .items p {
   overflow: hidden;
   transition: all 0.5s;
   width: 75%;
+  margin: 0;
+  font-size: 10px;
+}
+@media screen and (min-width: 980px) {
+  main .restaurant-menu__carte ul .items p {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1240px) {
+  main .restaurant-menu__carte ul .items p {
+    font-size: 20px;
+  }
 }
 main .restaurant-menu__carte ul .items strong {
   position: absolute;
@@ -320,7 +334,7 @@ main .restaurant-menu__carte ul .items:hover span i {
 }
 main .restaurant-menu__carte ul .items {
   opacity: 0;
-  animation: Ahahahah 1000ms forwards;
+  animation: itemmouv 1000ms forwards;
 }
 main .restaurant-menu__carte ul .items--1 {
   animation-delay: 300ms;
@@ -349,7 +363,7 @@ main .restaurant-menu__carte ul .items--8 {
 main .restaurant-menu__carte ul .items--9 {
   animation-delay: 2700ms;
 }
-@keyframes Ahahahah {
+@keyframes itemmouv {
   0% {
     transform: translateY(2em);
   }
@@ -359,16 +373,30 @@ main .restaurant-menu__carte ul .items--9 {
   }
 }
 
+.items--1 {
+  animation-delay: 300ms;
+}
+
+.items--2 {
+  animation-delay: 600ms;
+}
+
+.items--3 {
+  animation-delay: 900ms;
+}
+
+.items--4 {
+  animation-delay: 1200ms;
+}
+
 footer {
   display: grid;
   grid-template-columns: repeat 1, 1fr;
   padding: 2em 2em;
   background-color: #353535;
 }
-footer h3 a {
+footer h3 {
   font-family: "Shrikhand", cursive;
-  color: white;
-  text-decoration: none;
 }
 footer p,
 footer a {
@@ -377,6 +405,9 @@ footer a {
   font-family: roboto;
   display: flex;
   gap: 20px;
+}
+footer i {
+  width: 14px;
 }
 
 .btn {
@@ -404,6 +435,17 @@ footer a {
   background-color: white;
 }
 
+.items-violet {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+  background-color: #f2eafb;
+}
+.items-violet i {
+  color: #9356dc;
+}
+
 .BoxCoeur .heart-away {
   display: block;
   transform: scale(1);
@@ -423,7 +465,7 @@ footer a {
   -moz-text-fill-color: transparent;
 }
 
-.BoxCoeur:hover .heart-away {
+S .BoxCoeur:hover .heart-away {
   opacity: 0;
   transform: scale(0);
 }
@@ -454,38 +496,46 @@ footer a {
   text-align: center;
 }
 
-.cs-loader-inner label {
+.cs-loader-inner span {
   font-size: 20px;
   opacity: 0;
   display: inline-block;
 }
 
-.cs-loader-inner label:nth-child(6) {
+/**
+@for $i from 1 to 6 {
+    .cs-loader-inner label:nth-child($i) {
+        -webkit-animation: lol 3s infinite ease-in-out;
+        animation: lol 3s infinite ease-in-out;
+        animation-delay: 100ms * $i;
+    }
+} **/
+.cs-loader-inner span:nth-child(6) {
   -webkit-animation: lol 3s infinite ease-in-out;
   animation: lol 3s infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(5) {
+.cs-loader-inner span:nth-child(5) {
   -webkit-animation: lol 3s 100ms infinite ease-in-out;
   animation: lol 3s 100ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(4) {
+.cs-loader-inner span:nth-child(4) {
   -webkit-animation: lol 3s 200ms infinite ease-in-out;
   animation: lol 3s 200ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(3) {
+.cs-loader-inner span:nth-child(3) {
   -webkit-animation: lol 3s 300ms infinite ease-in-out;
   animation: lol 3s 300ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(2) {
+.cs-loader-inner span:nth-child(2) {
   -webkit-animation: lol 3s 400ms infinite ease-in-out;
   animation: lol 3s 400ms infinite ease-in-out;
 }
 
-.cs-loader-inner label:nth-child(1) {
+.cs-loader-inner span:nth-child(1) {
   -webkit-animation: lol 3s 500ms infinite ease-in-out;
   animation: lol 3s 500ms infinite ease-in-out;
 }

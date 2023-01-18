@@ -39,7 +39,8 @@ main {
 
         & ol {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(1, 1fr);
+            /** 3 carte sur une colonne en version phone**/
             grid-gap: 2em;
             margin: 1em 1em 0;
             counter-reset: MyCounter;
@@ -49,8 +50,9 @@ main {
             justify-self: normal;
             padding: 0;
 
-            @media screen and (max-width: 980px) {
-                grid-template-columns: repeat(1, 1fr);
+            @media screen and (min-width: 980px) {
+                grid-template-columns: repeat(3, 1fr);
+                /** 1 carte par colonne en version tablette et plus**/
             }
 
             & li {
@@ -73,11 +75,11 @@ main {
                 left: -1.9em;
                 padding: 0.3em 0.6em;
                 border-radius: 70%;
-                background-color: white;
+                background-color: $violet-primaire;
                 color: $txt-fond-sombre;
             }
 
-            & li:hover {
+            & li .items {
                 background-color: lighten($violet-primaire, 35%);
 
                 & i {
@@ -235,6 +237,7 @@ main {
                     overflow: hidden;
                     cursor: pointer;
 
+
                     & h4 {
                         margin: 0 0 0.5rem 0;
                         font-size: 1em;
@@ -252,6 +255,16 @@ main {
                         overflow: hidden;
                         transition: all 0.5s;
                         width: 75%;
+                        margin: 0;
+                        font-size: 10px;
+
+                        @media screen and (min-width: 980px) {
+                            font-size: 15px;
+                        }
+
+                        @media screen and (min-width: 1240px) {
+                            font-size: 20px;
+                        }
                     }
 
                     & strong {
@@ -305,8 +318,9 @@ main {
                 }
 
                 & .items {
+
                     opacity: 0;
-                    animation: itemmove 1000ms forwards;
+                    animation: itemmouv 1000ms forwards;
 
                     @for $i from 1 to 10 {
                         &--#{$i} {
@@ -314,7 +328,7 @@ main {
                         }
                     }
 
-                    @keyframes itemove {
+                    @keyframes itemmouv {
                         0% {
                             transform: translateY(2em);
                         }
@@ -329,4 +343,22 @@ main {
             }
         }
     }
+}
+
+
+
+.items--1 {
+    animation-delay: 300ms;
+}
+
+.items--2 {
+    animation-delay: 600ms;
+}
+
+.items--3 {
+    animation-delay: 900ms;
+}
+
+.items--4 {
+    animation-delay: 1200ms;
 }
