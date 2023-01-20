@@ -59,8 +59,7 @@ header h1 {
   position: absolute;
   left: 2rem;
   height: 2rem;
-  width: -8rem;
-  top: 3%;
+  top: 2%;
   font-size: 24px;
   color: #000;
 }
@@ -391,7 +390,7 @@ main .restaurant-menu__carte ul .items--9 {
 
 footer {
   display: grid;
-  grid-template-columns: repeat 1, 1fr;
+  grid-template-columns: repeat(1, 1fr);
   padding: 2em 2em;
   background-color: #353535;
 }
